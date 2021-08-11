@@ -54,6 +54,7 @@ type EVMOnlyConfig interface {
 	MinRequiredOutgoingConfirmations() uint64
 	MinimumContractPayment() *assets.Link
 	OCRContractConfirmations() uint16
+	OCR2ContractConfirmations() uint16
 	SetEvmGasPriceDefault(value *big.Int) error
 	Validate() error
 }
@@ -423,6 +424,14 @@ func (c *evmConfig) OCRContractConfirmations() uint16 {
 		return val.(uint16)
 	}
 	return c.chainSpecificConfig.OCRContractConfirmations
+}
+
+func (c *evmConfig) OCR2ContractConfirmations() uint16 {
+	val, ok := lookupEnv("OCR2_CONTRACT_CONFIRMATIONS", parseUint16)
+	if ok {
+		return val.(uint16)
+	}
+	return c.chainSpecificConfig.OCR2ContractConfirmations
 }
 
 // MinIncomingConfirmations represents the minimum number of block
