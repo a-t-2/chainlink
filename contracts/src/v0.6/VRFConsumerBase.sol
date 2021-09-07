@@ -1,11 +1,15 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.6.0;
 
-import "./vendor/SafeMathChainlink.sol";
+//import "../../chainlink/contracts/src/v0.6/vendor/SafeMathChainlink.sol";
+import "../chainlink/contracts/src/v0.6/vendor/SafeMathChainlink.sol";
+//import "vendor/SafeMathChainlink.sol";
+//import "./vendor/SafeMathChainlink.sol";
 
-import "./interfaces/LinkTokenInterface.sol";
+import "../../chainlink/contracts/src/v0.6/interfaces/LinkTokenInterface.sol";
 
-import "./VRFRequestIDBase.sol";
+
+import "../../chainlink/contracts/src/v0.6/VRFRequestIDBase.sol";
 
 /** ****************************************************************************
  * @notice Interface for contracts using VRF randomness
@@ -173,8 +177,8 @@ abstract contract VRFConsumerBase is VRFRequestIDBase {
     return makeRequestId(_keyHash, vRFSeed);
   }
 
-  LinkTokenInterface immutable internal LINK;
-  address immutable private vrfCoordinator;
+  LinkTokenInterface internal LINK;
+  address private vrfCoordinator;
 
   // Nonces for each VRF key from which randomness has been requested.
   //
