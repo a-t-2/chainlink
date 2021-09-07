@@ -8,7 +8,7 @@ import (
 )
 
 var (
-	DefaultMinimumContractPayment        = assets.NewLinkFromJuels(100000000000000) // 0.0001 LINK
+	DefaultMinimumContractPayment        = assets.NewLinkFromJuels(1000000000000) // 0.000001 LINK
 	DefaultGasLimit               uint64 = 500000
 	DefaultGasPrice                      = assets.GWei(20)
 )
